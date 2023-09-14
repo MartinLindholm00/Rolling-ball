@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
     public GameObject Opjective;
-    public int Timer = 10;
+    public int SpawnTimer = 10;
     public int SpawnArea;
 
     // Start is called before the first frame update
@@ -18,10 +18,28 @@ public class SpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Timer == 0 )
+        if (SpawnTimer > 0)
         {
-            Instantiate(Opjective);
-            Timer = 10;
+          //  SpawnTimer = SpawnTimer - Time.deltaTime;
         }
+        if (SpawnTimer == 0)
+        {
+            //Instantiate(Opjective);
+            SpawnTimer = 10;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log(SpawnTimer);
+    }
+
+    float UpdateTimer(float CurrentTime)
+    {
+        CurrentTime -= 1;
+
+        float minutes = Mathf.FloorToInt(CurrentTime / 60);
+        float secunds = Mathf.FloorToInt(CurrentTime % 60);
+        return CurrentTime;
     }
 }
