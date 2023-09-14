@@ -7,12 +7,14 @@ public class SpawnerScript : MonoBehaviour
 {
     public GameObject Opjective;
     public int SpawnTimer = 10;
-    public int SpawnArea;
+    private Vector2 SpawnArea;
+
+    //Vector2 SpawnArea = new Vector2 ();
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(Opjective);
+        Instantiate(Opjective );
     }
 
     // Update is called once per frame
