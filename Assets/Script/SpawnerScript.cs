@@ -7,28 +7,21 @@ public class SpawnerScript : MonoBehaviour
 {
     public GameObject Opjective;
     public int SpawnTimer = 10;
-    private Vector2 SpawnArea;
+    public Vector3 Size;
+    public Vector3 Center;
 
     //Vector2 SpawnArea = new Vector2 ();
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(Opjective );
+        spawnObjective();
+        InvokeRepeating("spawnObjective", SpawnTimer, SpawnTimer);
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (SpawnTimer > 0)
-        {
-          //  SpawnTimer = SpawnTimer - Time.deltaTime;
-        }
-        if (SpawnTimer == 0)
-        {
-            //Instantiate(Opjective);
-            SpawnTimer = 10;
-        }
+    { 
     }
 
     private void FixedUpdate()
@@ -43,5 +36,11 @@ public class SpawnerScript : MonoBehaviour
         float minutes = Mathf.FloorToInt(CurrentTime / 60);
         float secunds = Mathf.FloorToInt(CurrentTime % 60);
         return CurrentTime;
+    }
+
+    public void spawnObjective ()
+    {
+        Vector3 pos = Center + new Vector3(Random.Range(-Size.x / 2, Size.x / 2), 1, Random.Range(-Size.z / 2, Size.z / 2));
+        Instantiate(Opjective, pos, transform.rotation);
     }
 }
