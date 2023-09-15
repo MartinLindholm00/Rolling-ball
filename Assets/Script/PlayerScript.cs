@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    private LogicScript Logic;
+    private ObjectiveScript Objective;
+
     public float speedForce = 1.0f;
 
     private float movementX;
@@ -15,7 +19,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Logic = GameObject.FindGameObjectsWithTag("LogicTag").GetComponent<LogicScript>();
+
     }
 
     //I am using FixedUpdate since i am using physics methodes. That way, the game will run more smothly
@@ -28,7 +33,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Objective = GameObject.FindGameObjectWithTag("ObjectiveTag").GetComponent<ObjectiveScript>();
     }
 
     //This methode is used since i am using the "Player Input" component in Unity
@@ -39,5 +44,11 @@ public class PlayerScript : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
+    }
+
+    private void OnTriggerEnter()
+    {
+        Logic.AddScore(1);
+        Objective.Collision();
     }
 }
