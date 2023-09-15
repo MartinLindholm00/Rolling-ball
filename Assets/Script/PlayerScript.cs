@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    //I am using FixedUpdate since i am using physics methodes. That way, the game will run more smothly
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
@@ -30,6 +31,8 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    //This methode is used since i am using the "Player Input" component in Unity
+    //This then makes the inputs into vectors for me to add force with
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();

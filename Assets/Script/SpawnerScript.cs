@@ -10,13 +10,12 @@ public class SpawnerScript : MonoBehaviour
     public Vector3 Size;
     public Vector3 Center;
 
-    //Vector2 SpawnArea = new Vector2 ();
-
     // Start is called before the first frame update
     void Start()
     {
         spawnObjective();
-        InvokeRepeating("spawnObjective", SpawnTimer, SpawnTimer);
+        InvokeRepeating(nameof(spawnObjective), SpawnTimer, SpawnTimer); /* I have desided to use an Invoke method
+                                                                            to reapeat the SpawnObjective Methode */
     }
 
     // Update is called once per frame
@@ -26,16 +25,7 @@ public class SpawnerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(SpawnTimer);
-    }
 
-    float UpdateTimer(float CurrentTime)
-    {
-        CurrentTime -= 1;
-
-        float minutes = Mathf.FloorToInt(CurrentTime / 60);
-        float secunds = Mathf.FloorToInt(CurrentTime % 60);
-        return CurrentTime;
     }
 
     public void spawnObjective ()

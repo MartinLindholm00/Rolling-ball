@@ -21,6 +21,7 @@ public class LogicScript : MonoBehaviour
         
     }
 
+    //The Method to add the score
     public void AddScore(int ScoreAdded)
     {
         score = score + ScoreAdded;
