@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Opjective: {fileID: 4600046991922706929, guid: 03f65a503d5e78741bbdf9ef44ed465b, type: 3}
-  SpawnTimer: 10
+  SpawnTimer: 3
   Size: {x: 25, y: 0, z: 25}
   Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1209532166

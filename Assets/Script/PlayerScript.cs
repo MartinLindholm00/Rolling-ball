@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Logic = GameObject.FindGameObjectsWithTag("LogicTag").GetComponent<LogicScript>();
+        Logic = GameObject.FindGameObjectWithTag("LogicTag").GetComponent<LogicScript>();
 
     }
 
@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Objective = GameObject.FindGameObjectWithTag("ObjectiveTag").GetComponent<ObjectiveScript>();
+        Objective = GameObject.FindGameObjectsWithTag("ObjectiveTag").GetComponent<ObjectiveScript>();
     }
 
     //This methode is used since i am using the "Player Input" component in Unity
