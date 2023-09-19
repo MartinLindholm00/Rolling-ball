@@ -33,7 +33,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Objective = GameObject.FindGameObjectsWithTag("ObjectiveTag").GetComponent<ObjectiveScript>();
+        GameObject[] objectiveCubes;
+        objectiveCubes = GameObject.FindGameObjectsWithTag("ObjectiveTag");
     }
 
     //This methode is used since i am using the "Player Input" component in Unity
@@ -44,11 +45,5 @@ public class PlayerScript : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
-    }
-
-    private void OnTriggerEnter()
-    {
-        Logic.AddScore(1);
-        Objective.Collision();
     }
 }
